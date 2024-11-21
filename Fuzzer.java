@@ -34,7 +34,7 @@ public class Fuzzer {
                 "</body>\n" +
                 "</html>\n" +
                 "\n";
-        List<String> mutatedInputs = getMutatedInputs(seedInput, 10);
+        List<String> mutatedInputs = getMutatedInputs(seedInput, 30);
 
         ProcessBuilder builder = getProcessBuilderForCommand(commandToFuzz, workingDirectory);
         System.out.printf("Command: %s\n", builder.command());

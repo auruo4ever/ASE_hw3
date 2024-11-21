@@ -1,0 +1,23 @@
+name: Run Fuzzer
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-fuzzer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' 
+          distribution: 'temurin'
+
+      - name: Compile Fuzzer
+        run: java Fuzzer.java "./html_parser_linux_x86_64" 
