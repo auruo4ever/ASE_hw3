@@ -6,18 +6,18 @@ on:
       - main
 
 jobs:
-  run-fuzzer:
+  fuzzer-job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          java-version: '17' 
+          java-version: '17'
           distribution: 'temurin'
 
-      - name: Compile Fuzzer
-        run: java Fuzzer.java "./html_parser_linux_x86_64" 
+      - name: Run Fuzzer
+        run: java Fuzzer.java "./html_parser_mac_universal"

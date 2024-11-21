@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 
 public class Fuzzer {
-    
+
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Usage: java Fuzzer.java \"<command_to_fuzz>\"");
@@ -34,7 +34,7 @@ public class Fuzzer {
                 "</body>\n" +
                 "</html>\n" +
                 "\n";
-        List<String> mutatedInputs = getMutatedInputs(seedInput, 30);
+        List<String> mutatedInputs = getMutatedInputs(seedInput, 10);
 
         ProcessBuilder builder = getProcessBuilderForCommand(commandToFuzz, workingDirectory);
         System.out.printf("Command: %s\n", builder.command());
@@ -84,6 +84,8 @@ public class Fuzzer {
                 System.out.println("Non-zero exit code detected!");
                 System.out.printf("Exit code: %s\n", exitCode);
                 System.out.printf("\n ");
+
+                System.exit(1);
 
             }
         }
