@@ -20,4 +20,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Fuzzer
-        run: java Fuzzer.java "./html_parser_mac_universal"
+        run: java Fuzzer.java "./html_parser_linux_x86_64"
